@@ -1,0 +1,12 @@
+body {
+    margin: 10px;
+}
+
+.btn {
+    border: solid 2px rgba(0, 0, 0, 0);
+}
+
+.pushed {
+    border: solid 2px black;
+    opacity: 0.6;
+}

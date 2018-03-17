@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Music Player</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <button class="btn q">q</button>
+    <button class="btn w">w</button>
+    <button class="btn e">e</button>
+    <button class="btn r">r</button>
+    <button class="btn t">t</button>
+
+
+
+    <div id="music-controls" class="text-center">
+        <button class="btn btn-warning btn-xs theme-button">
+            <span class="glyphicon glyphicon-music"></span> Play Test Sound</button>
+        <button class="btn btn-dark btn-xs pause-button">
+            <span class="glyphicon glyphicon-pause"></span> Pause Test Sound</button>
+    </div>
+
+    <ins class="scales_chords_api" chord="E" instrument="guitar" output="sound"></ins>
+    <ins class="scales_chords_api" chord="C" instrument="guitar" output="sound"></ins>
+    <ins class="scales_chords_api" chord="G" instrument="guitar" output="sound"></ins>
+    <ins class="scales_chords_api" chord="B" instrument="guitar" output="sound"></ins>
+    <ins class="scales_chords_api" chord="D" instrument="guitar" output="sound"></ins>
+
+
+
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="assets/javascript/app.js"></script>
+<script async type="text/javascript" src="https://www.scales-chords.com/api/scales-chords-api.js"></script>
+
+</html>
