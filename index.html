@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-us">
 
+<head>
+
+  <meta charset="UTF-8">
+  <title>Piano</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase-database.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+  
+      <!-- Jumbotron -->
+      <div class="jumbotron color-black">
+        <h1 class="text-center">Employee Data Management</h1>
+        <p class="lead text-center">A Comprehensive Directory of Employee Billable Hours.</p>
+      </div>
+  
+      <div class='row mt-5'>
+        <div class="col-12">
+          <div class="card border-info card-primary">
+            <div class="card-header color-turquoise">
+              <strong>Add Employee</strong>
+            </div>
+            <div class="card-body">
+  
+              <form id="addForm">
+                <div class="form-group">
+                  <label for="inputAddress">Name</label>
+                  <input type="text" class="form-control" id="employeeName">
+                </div>
+                
+                <button type="submit" class="btn btn-primary color-turquoise">Create</button> 
+
+                <div class="form-group">
+                  <label for="inputAddress">Room ID</label>
+                  <input type="text" class="form-control" id="roomId">
+                </div>             
+                <button id="joinBtn" class="btn btn-primary color-turquoise">Join</button>
+
+              </form>
+  
+  
+            </div>
+          </div>
+        </div>
+      </div>
+
+  
+    </div>
+
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>
