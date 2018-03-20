@@ -1,0 +1,34 @@
+body {
+    text-align: left;
+
+}
+
+
+
+.jumbotron {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.sidenav {
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    right: 166px;
+    width: 290px;
+    height: 256px;
+    text-align: center;
+    top: 144px;
+    padding-top: 90px;
+    color: white;
+    font-size: 265%;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 2px 3px 4px black;
+
+}
+
+.display-4 {
+    
+}
+
+background {
+    
+}
