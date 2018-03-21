@@ -3,11 +3,43 @@ body {
 }
 
 .btn {
-    border: solid 2px rgba(0, 0, 0, 0);
+
+    border: solid 2px lightgrey;
     font-family: 'Courier New', Courier, monospace;
+    height: 15rem;
+    width: 3rem;
+
+    display: table-cell;
+    vertical-align: text-bottom;
 }
 
 .pushed {
     border: solid 2px black;
     opacity: 0.6;
+}
+
+.piano{
+    position: relative;
+}
+
+.octave{
+    height: 3rem;
+    width: 3rem;
+}
+
+.white{
+
+
+
+    color: gray;
+    background-color: white;
+
+}
+
+.black{
+
+    color: gray;
+    background-color: black;
+
+
 }
