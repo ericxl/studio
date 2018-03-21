@@ -3,43 +3,34 @@ body {
 }
 
 .btn {
-
     border: solid 2px lightgrey;
     font-family: 'Courier New', Courier, monospace;
     height: 15rem;
     width: 3rem;
-
     display: table-cell;
     vertical-align: text-bottom;
 }
 
 .pushed {
     border: solid 2px black;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
-.piano{
-    position: relative;
+.piano {
+    border: solid 1px black;
 }
 
-.octave{
+.octave {
     height: 3rem;
     width: 3rem;
 }
 
-.white{
-
-
-
+.white {
     color: gray;
     background-color: white;
-
 }
 
-.black{
-
+.black {
     color: gray;
     background-color: black;
-
-
 }
