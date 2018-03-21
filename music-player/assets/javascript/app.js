@@ -9,12 +9,22 @@ $("#music-controls").on("click", ".theme-button", function () {
 });
 
 
-var keyboard = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"]
+var octave = 4;
+
+var octaveNumbers = ["2", "3", "4", "5"];
+
+var keyboard = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s"];
+
+
+
+
+
 
 
 $(document).keydown(function (keypressed) {
 
     playNote(keypressed);
+    changeOctave(keypressed);
 
 });
 
@@ -34,7 +44,7 @@ function playNote(keypressed) {
         if (k === keyboard[i]) {
 
             var audioElement = document.createElement("audio");
-            audioElement.setAttribute("src", "Assets/audio/" + k + ".wav");
+            audioElement.setAttribute("src", "assets/audio/" + k + octave + ".wav");
 
             if ($("." + k).hasClass("pushed") === false) {
 
@@ -61,7 +71,7 @@ function stopNote(keypressed) {
         if (k === keyboard[i]) {
 
             var audioElement = document.createElement("audio");
-            audioElement.setAttribute("src", "Assets/audio/" + k + ".wav");
+            audioElement.setAttribute("src", "assets/audio/" + k + octave + ".wav");
 
             audioElement.pause();
             $("." + k).removeClass("pushed");
@@ -69,5 +79,22 @@ function stopNote(keypressed) {
         };
 
     };
+
+};
+
+
+function changeOctave(keypressed) {
+
+    var n = keypressed.key;
+
+    for (i = 0; i < octaveNumbers.length; i++) {
+
+        if (n === octaveNumbers[i]) {
+
+            octave = n;
+            console.log(octave);
+        }
+
+    }
 
 };
