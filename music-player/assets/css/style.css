@@ -1,5 +1,9 @@
-body {
-    margin: 10px;
+
+
+.piano {
+    border: solid 4px black;
+    position: relative;
+    display: table;
 }
 
 .btn {
@@ -7,30 +11,40 @@ body {
     font-family: 'Courier New', Courier, monospace;
     height: 15rem;
     width: 3rem;
-    display: table-cell;
-    vertical-align: text-bottom;
-}
+    position: relative;
+    float: left;
 
-.pushed {
-    border: solid 2px black;
-    opacity: 0.8;
-}
 
-.piano {
-    border: solid 1px black;
-}
-
-.octave {
-    height: 3rem;
-    width: 3rem;
 }
 
 .white {
     color: gray;
     background-color: white;
+    z-index: 1;
+
+    display: table-cell;
+    vertical-align: text-bottom;
+
+
 }
 
 .black {
     color: gray;
     background-color: black;
+
+    z-index: 2;
+    height: 10rem;
+    width: 2rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+
+}
+    
+.pushed {
+    border: solid 2px black;
+}
+
+.octave {
+    height: 3rem;
+    width: 3rem;
 }
