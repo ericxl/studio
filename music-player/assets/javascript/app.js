@@ -1,7 +1,7 @@
 var octave = 4;
 
-var octaveNumbers = ["2", "3", "4"];
-var octaveValues = [2, 3, 4]
+var octaveNumbers = ["2", "3", "4", "5"];
+var octaveValues = [2, 3, 4, 5]
 
 var keyboard = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s"]
 var keyboardHigher = ["d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b"];
@@ -22,6 +22,8 @@ function playNote(k) {
 
 
                 audioElement.play();
+ 
+
                 $("." + k).addClass("pushed");
                 console.log("playing");
             }

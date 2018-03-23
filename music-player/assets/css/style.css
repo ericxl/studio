@@ -49,11 +49,17 @@
     width: 3rem;
 }
 
+.hidden{
+    display: none;
+}
+
 @media (max-width: 700px) {
     .second-octave{
-
         display: none;
+    }
 
+    .fifth-octave{
+        display: inline-block;
     }
     
      
