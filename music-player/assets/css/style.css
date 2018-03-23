@@ -48,3 +48,14 @@
     height: 3rem;
     width: 3rem;
 }
+
+@media (max-width: 700px) {
+    .second-octave{
+
+        display: none;
+
+    }
+    
+     
+        
+    }

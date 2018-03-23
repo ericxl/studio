@@ -7,23 +7,9 @@ var keyboard = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s"]
 var keyboardHigher = ["d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b"];
 
 
-$(document).keydown(function (keypressed) {
 
-    playNote(keypressed);
-    changeOctave(keypressed);
+function playNote(k) {
 
-});
-
-$(document).keyup(function (keypressed) {
-
-    stopNote(keypressed);
-
-});
-
-
-function playNote(keypressed) {
-
-    var k = keypressed.key;
 
     for (i = 0; i < keyboard.length; i++) {
 
@@ -66,10 +52,7 @@ function playNote(keypressed) {
 
 };
 
-function stopNote(keypressed) {
-
-    var k = keypressed.key;
-
+function stopNote(k) {
 
     for (i = 0; i < keyboard.length; i++) {
 
@@ -102,9 +85,8 @@ function stopNote(keypressed) {
 };
 
 
-function changeOctave(keypressed) {
+function changeOctave(n) {
 
-    var n = keypressed.key;
 
     for (i = 0; i < octaveNumbers.length; i++) {
 
@@ -126,3 +108,40 @@ function changeOctave(keypressed) {
     }
 
 };
+
+
+$(".piano").on("click", ".btn", function () {
+
+    console.log($(this).text());
+
+    k = $(this).text();
+    playNote(k);
+    stopNote(k);
+
+})
+
+$(".octave-control").on("click", ".btn", function () {
+
+    console.log($(this).text());
+
+    k = $(this).text();
+    changeOctave(k);
+
+})
+
+
+$(document).keydown(function (keypressed) {
+
+    var k = keypressed.key;
+
+    playNote(k);
+    changeOctave(k);
+
+});
+
+$(document).keyup(function (keypressed) {
+
+    var k = keypressed.key;
+    stopNote(k);
+
+});
