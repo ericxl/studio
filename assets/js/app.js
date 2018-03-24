@@ -23,8 +23,10 @@ $(".show_search").on("click", function(event){
 
     $(".search_btn").on("click", function(event){
         event.preventDefault();
-    
+        
+        $(".album_art").empty();
         search();
+        
     
     })
 
@@ -93,11 +95,19 @@ function search() {
             var track = data.message.body.track_list[0].track;
             console.log(track);
             $(".album_art").html(
-                "<div class='song_info'>" + 
-                    "<div class='artist_name'>" + track.artist_name + "</div>" + 
-                    "<div class='album_name'>" + track.album_name + "</div>" +
-                    '<a href="' + track.track_share_url + '" target="_blank"><button class="btn btn-primary mb-2 search_btn">Lyrics</button></a>' + 
-                "</div>"
+                '<div class="card" style="width: 18rem;">' +
+                    '<div class="card-body">' +
+                        '<h5 class="card-title">Artist: ' + track.artist_name + '</h5>' +
+                        '<h6 class="card-subtitle mb-2 text-muted">Track: ' + track.track_name + '</h6>' +
+                        "<p class='card-text album_name'>Album: " + track.album_name + "</p>" +
+                        '<a href="' + track.track_share_url + '" target="_blank"><button class="btn btn-primary mb-2 search_btn">Lyrics</button></a>' +
+                    '</div>' +
+                '</div>'
+                // "<div class='song_info'>" + 
+                //     "<div class='artist_name'>" + track.artist_name + "</div>" + 
+                //     "<div class='album_name'>" + track.album_name + "</div>" +
+                //     '<a href="' + track.track_share_url + '" target="_blank"><button class="btn btn-primary mb-2 search_btn">Lyrics</button></a>' + 
+                // "</div>"
             );
         },
         error: function(jqXHR, textStatus, errorThrown) {
