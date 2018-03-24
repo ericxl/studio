@@ -289,12 +289,12 @@ function search() {
                     
                 })
             });
-            }
+            })
             
 
             
         }
-    )
+    
 
     $.ajax({
         type: "GET",
@@ -306,7 +306,7 @@ function search() {
             format:"jsonp",
             callback:"jsonp_callback"
         },
-        url: "http://api.musixmatch.com/ws/1.1/track.search",
+        url: "https://api.musixmatch.com/ws/1.1/track.search",
         dataType: "jsonp",
         jsonpCallback: 'jsonp_callback',
         contentType: 'application/json',
@@ -341,7 +341,7 @@ function search() {
 
       
 
-}
+})
 
 
 function createRoom(database, user) {
@@ -403,6 +403,8 @@ $("#createRoomBtn").on("click", function(event){
 
       
       console.log("Your room key is: " + key);
+      $(".room-key").text("Your room key is: " + key);
+      
         joinRoom(database, key, name);
     });
 });
@@ -414,7 +416,7 @@ $("#joinRoomBtn").on("click", function (event) {
     var roomId = $("#roomKey").val();
     joinRoom(database, roomId, name);
 });
-
+};
 // $.get(
 //     "http://api.musixmatch.com/ws/1.1/track.search?apikey=dc323e0e3f23c8b4bab30839be7c790f", {
 //         q_track: "Let her go",
