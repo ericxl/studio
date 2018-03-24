@@ -48,13 +48,13 @@ function playNote(k) {
 
 
                 audioElement.play();
- 
+
 
                 $("." + k).addClass("pushed");
                 console.log("playing");
             }
             let obj = {
-                key: k+octave+"",
+                key: k + octave + "",
                 user: userIndex
             };
             database.ref('rooms/' + roomID + "/notes").push(obj);
@@ -149,7 +149,7 @@ function changeOctave(n) {
 
 $(".piano").on("click", ".key", function () {
 
-    if( pianoIsOn === true){
+    if (pianoIsOn === true) {
         console.log($(this).text());
 
         k = $(this).text();
@@ -166,11 +166,11 @@ $(".octave-control").on("click", ".key", function () {
     k = $(this).text();
     changeOctave(k);
 
-    if( k === "on"){
+    if (k === "on") {
         pianoIsOn = true;
         $(".on").addClass("pushed");
         $(".off").removeClass("pushed");
-    }else if( k === "off"){
+    } else if (k === "off") {
         pianoIsOn = false;
         $(".on").removeClass("pushed");
         $(".off").addClass("pushed");
@@ -185,7 +185,7 @@ $(document).keydown(function (keypressed) {
 
     var k = keypressed.key;
 
-    if( pianoIsOn === true){
+    if (pianoIsOn === true) {
         playNote(k);
 
     }
@@ -201,38 +201,38 @@ $(document).keyup(function (keypressed) {
 
 });
 
-$(".show_search").on("click", function(event){
+$(".show_search").on("click", function (event) {
     event.preventDefault();
 
     $(".search_area").empty();
 
     $(".search_area").html(
-        '<form class="form-inline">' + 
-            '<div class="form-group mb-2">' +
-                '<label for="staticEmail2" class="sr-only">Email</label>' +
-               
-      '<input type="text" readonly class="form-control-plaintext search_header" id="staticEmail2" value="Search for tutorials:">' +
+        '<form class="form-inline">' +
+        '<div class="form-group mb-2">' +
+        '<label for="staticEmail2" class="sr-only">Email</label>' +
 
-            '</div>' + 
-            '<div class="form-group mx-sm-3 mb-2">' +
-                '<label for="inputPassword2" class="sr-only"></label>' +
-                '<input class="form-control artist" id="inputPassword2" placeholder="Artist">' +
-            '</div>' + 
-            '<div class="form-group mx-sm-3 mb-2">' + 
-                '<label for="inputPassword2" class="sr-only"></label>' +
-                '<input class="form-control songName" id="inputPassword2" placeholder="Track Name">' +
-            '</div>' +
-            '<button type="submit" class="btn btn-primary mb-2 search_btn">Search</button>' +
+        '<input type="text" readonly class="form-control-plaintext search_header" id="staticEmail2" value="Search for tutorials:">' +
+
+        '</div>' +
+        '<div class="form-group mx-sm-3 mb-2">' +
+        '<label for="inputPassword2" class="sr-only"></label>' +
+        '<input class="form-control artist" id="inputPassword2" placeholder="Artist">' +
+        '</div>' +
+        '<div class="form-group mx-sm-3 mb-2">' +
+        '<label for="inputPassword2" class="sr-only"></label>' +
+        '<input class="form-control songName" id="inputPassword2" placeholder="Track Name">' +
+        '</div>' +
+        '<button type="submit" class="btn btn-primary mb-2 search_btn">Search</button>' +
         '<form>'
     );
 
-    $(".search_btn").on("click", function(event){
+    $(".search_btn").on("click", function (event) {
         event.preventDefault();
-        
+
         $(".album_art").empty();
         search();
 
-      
+
     })
 
 });
@@ -257,71 +257,71 @@ function search() {
             videoSyndicated: true,
             videoEmbeddable: true,
             key: "AIzaSyCDHzzlaYYZ23WOUIkyFB4qVqcgoXu7T1s"
-        }, function(data){
+        },
+        function (data) {
 
-          
-          if(data.items.length === 0){
+
+            if (data.items.length === 0) {
                 $("#results").text("No results. Please modify your search.");
+            } else {
+                $.each(data.items, function (i, item) {
+                    console.log(data);
+
+                    $.each(data.items, function (i, item) {
+
+                        var vidInfo = {
+                            videoID: item.id.videoId,
+                            videoTitle: item.snippet.title,
+                            thumb: item.snippet.thumbnails.high.url,
+                            description: item.snippet.description
+                        }
+
+                        $("#results").append("<div class='tutorial hello" + count + "' val='" + vidInfo.videoID + "'><img src= " + vidInfo.thumb + " class='image'><p class='title'>" + vidInfo.videoTitle + "</p><p class='description'>" + vidInfo.description + "</p></div>");
+                        $(".hello" + count).data(vidInfo);
+                        count++;
+
+                        $(".tutorial").on("click", function (event) {
+
+                            console.log($(this).data());
+
+                            var tutVid = $(this).data();
+                            $(".video").html("<iframe class='tutorial_video' val='" + tutVid.videoID + "' width='800' height='500' src='https://www.youtube.com/embed/" + tutVid.videoID + "' frameborder = '0' allow='autoplay; encrypted media' allowfullscreen></iframe>");
+
+                        })
+                    });
+                });
+
             }
-            else {
-                $.each(data.items, function(i, item){
-            console.log(data);
 
-            $.each(data.items, function(i, item){
+        });
 
-                var vidInfo = {
-                    videoID: item.id.videoId,
-                    videoTitle: item.snippet.title,
-                    thumb: item.snippet.thumbnails.high.url,
-                    description: item.snippet.description
-                }
-                
-                $("#results").append("<div class='tutorial hello" + count + "' val='" + vidInfo.videoID + "'><img src= " + vidInfo.thumb + " class='image'><p class='title'>" + vidInfo.videoTitle + "</p><p class='description'>" + vidInfo.description + "</p></div>");
-                $(".hello"+count).data(vidInfo);
-                count++;
-
-                $(".tutorial").on("click", function(event){
-
-                    console.log($(this).data());
-
-                    var tutVid = $(this).data();
-                    $(".video").html("<iframe class='tutorial_video' val='" + tutVid.videoID + "' width='800' height='500' src='https://www.youtube.com/embed/" + tutVid.videoID + "' frameborder = '0' allow='autoplay; encrypted media' allowfullscreen></iframe>");
-                    
-                })
-            });
-            })
-            
-
-            
-        }
-    
 
     $.ajax({
         type: "GET",
         data: {
-            apikey:"dc323e0e3f23c8b4bab30839be7c790f",
+            apikey: "dc323e0e3f23c8b4bab30839be7c790f",
             q_track: songName,
             q_artist: artist,
             f_has_lyrics: 1,
-            format:"jsonp",
-            callback:"jsonp_callback"
+            format: "jsonp",
+            callback: "jsonp_callback"
         },
         url: "https://api.musixmatch.com/ws/1.1/track.search",
         dataType: "jsonp",
         jsonpCallback: 'jsonp_callback',
         contentType: 'application/json',
-        success: function(data) {
+        success: function (data) {
             var track = data.message.body.track_list[0].track;
 
             console.log(track);
             $(".album_art").html(
                 '<div class="card" style="width: 18rem;">' +
-                    '<div class="card-body">' +
-                        '<h5 class="card-title">Artist: ' + track.artist_name + '</h5>' +
-                        '<h6 class="card-subtitle mb-2 text-muted">Track: ' + track.track_name + '</h6>' +
-                        "<p class='card-text album_name'>Album: " + track.album_name + "</p>" +
-                        '<a href="' + track.track_share_url + '" target="_blank"><button class="btn btn-primary mb-2 search_btn">Lyrics</button></a>' +
-                    '</div>' +
+                '<div class="card-body">' +
+                '<h5 class="card-title">Artist: ' + track.artist_name + '</h5>' +
+                '<h6 class="card-subtitle mb-2 text-muted">Track: ' + track.track_name + '</h6>' +
+                "<p class='card-text album_name'>Album: " + track.album_name + "</p>" +
+                '<a href="' + track.track_share_url + '" target="_blank"><button class="btn btn-primary mb-2 search_btn">Lyrics</button></a>' +
+                '</div>' +
                 '</div>'
                 // "<div class='song_info'>" + 
                 //     "<div class='artist_name'>" + track.artist_name + "</div>" + 
@@ -331,17 +331,17 @@ function search() {
 
             );
         },
-        error: function(jqXHR, textStatus, errorThrown) {
+        error: function (jqXHR, textStatus, errorThrown) {
             $(".album_art").empty();
             console.log(jqXHR);
             console.log(textStatus);
             console.log(errorThrown);
-        }    
-      });
+        }
+    });
 
-      
 
-})
+
+}
 
 
 function createRoom(database, user) {
@@ -377,11 +377,11 @@ function joinRoom(database, roomId, username) {
 }
 
 
-function registerOnNoteReceived(){
+function registerOnNoteReceived() {
     console.log('once');
-    database.ref('rooms/' + roomID + "/notes").limitToLast(1).on('child_added', function(snap) {
+    database.ref('rooms/' + roomID + "/notes").limitToLast(1).on('child_added', function (snap) {
         let note = snap.val();
-        
+
         let koct = note.key;
 
 
@@ -395,16 +395,16 @@ function registerOnNoteReceived(){
     });
 }
 
-$("#createRoomBtn").on("click", function(event){
+$("#createRoomBtn").on("click", function (event) {
     event.preventDefault();
     var name = $("#createNameInput").val();
     createRoom(database, name).then((snap) => {
         let key = snap.key;
 
-      
-      console.log("Your room key is: " + key);
-      $(".room-key").text("Your room key is: " + key);
-      
+
+        console.log("Your room key is: " + key);
+        $(".room-key-div").text("Your room key is: " + key);
+
         joinRoom(database, key, name);
     });
 });
@@ -416,7 +416,7 @@ $("#joinRoomBtn").on("click", function (event) {
     var roomId = $("#roomKey").val();
     joinRoom(database, roomId, name);
 });
-};
+
 // $.get(
 //     "http://api.musixmatch.com/ws/1.1/track.search?apikey=dc323e0e3f23c8b4bab30839be7c790f", {
 //         q_track: "Let her go",
@@ -449,7 +449,3 @@ $("#joinRoomBtn").on("click", function (event) {
 //         console.log(errorThrown);
 //     }    
 //   });
-
-
-
-
