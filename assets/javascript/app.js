@@ -382,6 +382,7 @@ $("#createRoomBtn").on("click", function(event){
     var name = $("#createNameInput").val();
     createRoom(database, name).then((snap) => {
         let key = snap.key;
+        console.log("Your room key is: " + key);
         joinRoom(database, key, name);
     });
 });
