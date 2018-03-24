@@ -49,3 +49,14 @@
 body{
     background-color: yellow;
 }
+
+.video{
+    position: relative;
+    text-align: center;
+}
+
+.album_art{
+    float: right;
+}
+
+
