@@ -58,6 +58,7 @@ label {
     border-bottom: 2px;
     position: relative;
     display: table;
+    margin: auto;   
 }
 
 .key {
@@ -103,6 +104,8 @@ label {
     border-top: 2px;
     position: relative;
     display: table;
+    margin: auto;   
+
 
 }
 .octave {
