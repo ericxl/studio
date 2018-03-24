@@ -27,9 +27,7 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Spotify Player</a>
-                </li>
+            
                 <li class="nav-item">
                     <a class="nav-link" href="#">Exit Room</a>
                 </li>
@@ -43,7 +41,7 @@
 
 
 
-    <div id="homePage" class="">
+    <div id="homePage" class="hidden">
 
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
@@ -127,19 +125,20 @@
         <button class="key b white second-octave">b</button>
 
     </div>
-
-    <br>
-    <br>
-
     <div class="octave-control">
 
-            <button class="octave key on">on</button>
-            <button class="octave key off">off</button>
+        <button class="octave key on">on</button>
+        <button class="octave key off pushed">off</button>
 
-            <button class="octave key 2">2</button>
-            <button class="octave key 3">3</button>
-            <button class="octave key 4 pushed">4</button>
-            <button class="octave key 5 hidden fifth-octave">5</button>
+        <button class="octave key filler"></button>
+
+
+        <button class="octave key octave-selector">Octave : </button>
+
+        <button class="octave key 2">2</button>
+        <button class="octave key 3">3</button>
+        <button class="octave key 4 pushed">4</button>
+        <button class="octave key 5 hidden fifth-octave">5</button>
 
 
     </div>

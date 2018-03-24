@@ -1,5 +1,7 @@
 var octave = 4;
 
+var pianoIsOn = false;
+
 var octaveNumbers = ["2", "3", "4", "5"];
 var octaveValues = [2, 3, 4, 5]
 
@@ -112,31 +114,49 @@ function changeOctave(n) {
 };
 
 
-$(".piano").on("click", ".btn", function () {
+$(".piano").on("click", ".key", function () {
 
-    console.log($(this).text());
+    if( pianoIsOn === true){
+        console.log($(this).text());
 
-    k = $(this).text();
-    playNote(k);
-    stopNote(k);
+        k = $(this).text();
+        playNote(k);
+        stopNote(k);
 
+
+    }
 })
 
-$(".octave-control").on("click", ".btn", function () {
+$(".octave-control").on("click", ".key", function () {
 
     console.log($(this).text());
-
     k = $(this).text();
     changeOctave(k);
 
+    if( k === "on"){
+        pianoIsOn = true;
+        $(".on").addClass("pushed");
+        $(".off").removeClass("pushed");
+    }    else if( k === "off"){
+        pianoIsOn = false;
+        $(".on").removeClass("pushed");
+        $(".off").addClass("pushed");
+
+    }
+
 })
+
 
 
 $(document).keydown(function (keypressed) {
 
     var k = keypressed.key;
 
-    playNote(k);
+    if( pianoIsOn === true){
+        playNote(k);
+
+    }
+
     changeOctave(k);
 
 });
