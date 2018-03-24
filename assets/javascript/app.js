@@ -210,7 +210,9 @@ $(".show_search").on("click", function(event){
         '<form class="form-inline">' + 
             '<div class="form-group mb-2">' +
                 '<label for="staticEmail2" class="sr-only">Email</label>' +
-                '<input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Search for tutorials: ">' +
+               
+      '<input type="text" readonly class="form-control-plaintext search_header" id="staticEmail2" value="Search for tutorials:">' +
+
             '</div>' + 
             '<div class="form-group mx-sm-3 mb-2">' +
                 '<label for="inputPassword2" class="sr-only"></label>' +
@@ -229,8 +231,8 @@ $(".show_search").on("click", function(event){
         
         $(".album_art").empty();
         search();
-        
-    
+
+      
     })
 
 });
@@ -242,7 +244,9 @@ function search() {
     var artist = $(".artist").val().trim();
     var count = 0;
 
+
     console.log(artist === "");
+
 
     $.get(
         "https://www.googleapis.com/youtube/v3/search", {
@@ -254,6 +258,13 @@ function search() {
             videoEmbeddable: true,
             key: "AIzaSyCDHzzlaYYZ23WOUIkyFB4qVqcgoXu7T1s"
         }, function(data){
+
+          
+          if(data.items.length === 0){
+                $("#results").text("No results. Please modify your search.");
+            }
+            else {
+                $.each(data.items, function(i, item){
             console.log(data);
 
             $.each(data.items, function(i, item){
@@ -270,12 +281,17 @@ function search() {
                 count++;
 
                 $(".tutorial").on("click", function(event){
+
                     console.log($(this).data());
+
                     var tutVid = $(this).data();
                     $(".video").html("<iframe class='tutorial_video' val='" + tutVid.videoID + "' width='800' height='500' src='https://www.youtube.com/embed/" + tutVid.videoID + "' frameborder = '0' allow='autoplay; encrypted media' allowfullscreen></iframe>");
                     
                 })
             });
+            }
+            
+
             
         }
     )
@@ -296,6 +312,7 @@ function search() {
         contentType: 'application/json',
         success: function(data) {
             var track = data.message.body.track_list[0].track;
+
             console.log(track);
             $(".album_art").html(
                 '<div class="card" style="width: 18rem;">' +
@@ -311,6 +328,7 @@ function search() {
                 //     "<div class='album_name'>" + track.album_name + "</div>" +
                 //     '<a href="' + track.track_share_url + '" target="_blank"><button class="btn btn-primary mb-2 search_btn">Lyrics</button></a>' + 
                 // "</div>"
+
             );
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -382,7 +400,9 @@ $("#createRoomBtn").on("click", function(event){
     var name = $("#createNameInput").val();
     createRoom(database, name).then((snap) => {
         let key = snap.key;
-        console.log("Your room key is: " + key);
+
+      
+      console.log("Your room key is: " + key);
         joinRoom(database, key, name);
     });
 });
