@@ -141,12 +141,13 @@ label {
 
 .description{
     font-style: italic;
+    color: white;
 }
 
 .title{
     font-weight: bold;
     font-size: 50px;
-    color: blue;
+    color: white;
     margin-right: 10px;
     margin-left: 10px;
     margin-top: 50px;
@@ -156,7 +157,6 @@ label {
     border: 1px solid black;
     width: 100%;
     height: 400px;
-    border-radius: 10px;
     background-color: rgba(0, 0, 0, .5);
 }
 
@@ -177,14 +177,29 @@ label {
     font-style: italic; 
 }
 
+
 .video{
-    position: relative;
     text-align: center;
 }
 
 .album_art{
-    float: right;
+    float: left;
 }
+
+.song_info{
+    background-color: rgba(0, 0, 0, .5);
+    color: white;   
+}
+
+.search_header{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.card{
+    text-align: center;
+}
+
 
 
 @media (max-width: 700px) {
