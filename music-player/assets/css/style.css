@@ -1,12 +1,62 @@
 
 
+body {
+    text-align: left;
+    background-image: url("../images/studio-background.jpg");
+
+}
+
+label {
+    color: white;
+}
+
+.lead {
+    text-align: center;
+    color: white;
+}
+.jumbotron {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.sidenav {
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    right: 166px;
+    width: 290px;
+    height: 256px;
+    text-align: center;
+    top: 144px;
+    padding-top: 90px;
+    color: white;
+    font-size: 265%;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 2px 3px 4px black;
+
+}
+
+.display-4 {
+
+    text-align: center;
+    
+}
+
+.intro{
+    border: solid 4px black;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, .5);
+    margin: auto;
+    margin-top: 25px;
+    max-width: 40rem;
+
+}
+
 .piano {
     border: solid 4px black;
     position: relative;
     display: table;
 }
 
-.btn {
+.key {
     border: solid 2px lightgrey;
     font-family: 'Courier New', Courier, monospace;
     height: 15rem;

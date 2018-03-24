@@ -14,34 +14,111 @@
 </head>
 
 <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="home.html">Euphony</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Tutorials
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Spotify Player</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Exit Room</a>
+                        </li>
+    
+                    </ul>
+                </div>
+            </nav>
+    
+
+
+    <div id="homePage" class="hidden">
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+
+                <h1 class="display-4">The Future of Music is Here</h1>
+
+                <div class="intro">
+
+                    <p class="lead">
+                        <strong>Euphony</strong>, an online studio that brings everyone together.</p>
+                    <p class="lead">Grab your friends to meet up and make your own music.</p>
+                    <p class="lead">This allows you to make music without having to</p>
+                    <p class="lead">spend money on all of the expensive equipment.</p>
+                    <p class="lead">enjoy.</p>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <form>
+                        <div class="form-group">
+                            <label for="createroom">Create Room</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Studio Name">
+                            <small id="emailHelp" class="form-text text-muted">Create your own studio</small>
+                        </div>
+
+                        <button type="submit" onclick="myFunction()" class="btn btn-dark">Submit</button>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <form>
+                        <div class="form-group">
+                            <label for="joinroom">Join Room</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Studio Key">
+                            <small id="emailHelp" class="form-text text-muted">Join an existing room</small>
+                        </div>
+
+                        <button type="submit" class="btn btn-dark">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     <div class="piano">
 
-        <button class="btn q white">q</button>
-        <button class="btn w black">w</button>
-        <button class="btn e white">e</button>
-        <button class="btn r black">r</button>
-        <button class="btn t white">t</button>
-        <button class="btn y white">y</button>
-        <button class="btn u black">u</button>
-        <button class="btn i white">i</button>
-        <button class="btn o black">o</button>
-        <button class="btn p white">p</button>
-        <button class="btn a black">a</button>
-        <button class="btn s white">s</button>
-        <button class="btn d white second-octave">d</button>
-        <button class="btn f black second-octave">f</button>
-        <button class="btn f black second-octave">f</button>
-        <button class="btn g white second-octave">g</button>
-        <button class="btn h black second-octave">h</button>
-        <button class="btn j white second-octave">j</button>
-        <button class="btn k white second-octave">k</button>
-        <button class="btn l black second-octave">l</button>
-        <button class="btn z white second-octave">z</button>
-        <button class="btn x black second-octave">x</button>
-        <button class="btn c white second-octave">c</button>
-        <button class="btn v black second-octave">v</button>
-        <button class="btn b white second-octave">b</button>
+        <button class="key q white">q</button>
+        <button class="key w black">w</button>
+        <button class="key e white">e</button>
+        <button class="key r black">r</button>
+        <button class="key t white">t</button>
+        <button class="key y white">y</button>
+        <button class="key u black">u</button>
+        <button class="key i white">i</button>
+        <button class="key o black">o</button>
+        <button class="key p white">p</button>
+        <button class="key a black">a</button>
+        <button class="key s white">s</button>
+        <button class="key d white second-octave">d</button>
+        <button class="key f black second-octave">f</button>
+        <button class="key f black second-octave">f</button>
+        <button class="key g white second-octave">g</button>
+        <button class="key h black second-octave">h</button>
+        <button class="key j white second-octave">j</button>
+        <button class="key k white second-octave">k</button>
+        <button class="key l black second-octave">l</button>
+        <button class="key z white second-octave">z</button>
+        <button class="key x black second-octave">x</button>
+        <button class="key c white second-octave">c</button>
+        <button class="key v black second-octave">v</button>
+        <button class="key b white second-octave">b</button>
 
     </div>
 
@@ -50,10 +127,10 @@
 
     <div class="octave-control">
 
-        <button class="octave btn 2">2</button>
-        <button class="octave btn 3">3</button>
-        <button class="octave btn 4 pushed">4</button>
-        <button class="octave btn 5 hidden fifth-octave">5</button>
+        <button class="octave key 2">2</button>
+        <button class="octave key 3">3</button>
+        <button class="octave key 4 pushed">4</button>
+        <button class="octave key 5 hidden fifth-octave">5</button>
 
 
 
