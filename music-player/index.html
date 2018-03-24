@@ -14,33 +14,36 @@
 </head>
 
 <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="home.html">Euphony</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Tutorials
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Spotify Player</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Exit Room</a>
-                        </li>
-    
-                    </ul>
-                </div>
-            </nav>
-    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="home.html">Euphony</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link show_search" href="#">Tutorials
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Spotify Player</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Exit Room</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="search_area"></div>
 
 
-    <div id="homePage" class="hidden">
+
+
+    <div id="homePage" class="">
 
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
@@ -92,6 +95,9 @@
 
     </div>
 
+    <div class="video"></div>
+    <div class="album_art"></div>
+
     <div class="piano">
 
         <button class="key q white">q</button>
@@ -127,14 +133,19 @@
 
     <div class="octave-control">
 
-        <button class="octave key 2">2</button>
-        <button class="octave key 3">3</button>
-        <button class="octave key 4 pushed">4</button>
-        <button class="octave key 5 hidden fifth-octave">5</button>
+            <button class="octave key on">on</button>
+            <button class="octave key off">off</button>
 
+            <button class="octave key 2">2</button>
+            <button class="octave key 3">3</button>
+            <button class="octave key 4 pushed">4</button>
+            <button class="octave key 5 hidden fifth-octave">5</button>
 
 
     </div>
+
+
+    <ul id="results"></ul>
 
 
 
